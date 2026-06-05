@@ -27,6 +27,8 @@ cd projeto-individual-react-procurados-one-piece
 3. Instale as dependências do projeto, incluindo React Router e Styled-Components:
 ```bash
 npm install 
+npm install styled-components
+npm install react-router-dom
 ```
 
 4. Rode o servidor de desenvolvimento:
