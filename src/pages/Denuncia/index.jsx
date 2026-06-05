@@ -3,8 +3,11 @@ import { ContainerPagina, TituloPagina, LogoMarinha, BotaoContato } from "../../
 import { DenDenMushi, BalaoDenuncia, TituloBalao, TextoBalao } from "./style.jsx";
 import logoMarinhaImg from "../../assets/marine.png";
 import denDenMushiImg from "../../assets/denden.png"; 
+import { useNavigate } from "react-router-dom";
 
 export function Denuncia() {
+
+  const navigate = useNavigate();
   const [mostrarBalao, setMostrarBalao] = useState(false);
   const [pirata, setPirata] = useState("");
 
@@ -13,7 +16,7 @@ export function Denuncia() {
   };
 
   const enviarDenuncia = () => {
-    alert(`Puru puru puru... Gacha! Mensagem recebida! A Marinha está enviando uma frota atrás de: ${pirata}`);
+    alert(`Mensagem recebida! A Marinha está enviando uma frota atrás de: ${pirata}`);
     setPirata(""); 
     setMostrarBalao(false); 
   };
@@ -22,7 +25,7 @@ export function Denuncia() {
     <ContainerPagina>
       <LogoMarinha src={logoMarinhaImg} alt="Logo da Marinha" />
       <TituloPagina>Central de Comunicações</TituloPagina>
-      <BotaoContato> Voltar aos Cartazes </BotaoContato>
+      <BotaoContato onClick={() => navigate("/")}> Voltar aos Cartazes </BotaoContato>
       <DenDenMushi 
         src={denDenMushiImg} 
         alt="Den Den Mushi" 
@@ -31,7 +34,7 @@ export function Denuncia() {
 
       {mostrarBalao && (
         <BalaoDenuncia>
-          <TituloBalao>Alô, Marinha?</TituloBalao>
+          <TituloBalao>Puru puru puru... Gacha!</TituloBalao>
           <TextoBalao>Qual pirata você quer reportar?</TextoBalao>
           
           <input 
